@@ -16,12 +16,11 @@ RUN mkdir /home/node/.config && chown node:node /home/node/.config
 
 FROM base AS app
 
-COPY package.json package-lock.json /overleaf/
-COPY services/clsi/package.json /overleaf/services/clsi/
-COPY libraries/ /overleaf/libraries/
-COPY patches/ /overleaf/patches/
+COPY services/clsi/package.json ./
+COPY services/clsi/libraries/ /overleaf/libraries/
+COPY services/clsi/patches/ /overleaf/patches/
 
-RUN cd /overleaf && npm ci --quiet
+RUN npm install --production --quiet
 
 COPY services/clsi/ /overleaf/services/clsi/
 
