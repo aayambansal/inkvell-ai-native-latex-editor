@@ -14,7 +14,8 @@
     "format": "prettier --list-different $PWD/'**/*.*js'",
     "format:fix": "prettier --write $PWD/'**/*.*js'",
     "lint:fix": "eslint --fix .",
-    "types:check": "tsc --noEmit"
+    "types:check": "tsc --noEmit",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@overleaf/fetch-utils": "*",
@@ -38,6 +39,7 @@
     "workerpool": "^6.1.5"
   },
   "devDependencies": {
+    "patch-package": "^8.0.0",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
     "mocha": "^11.1.0",
